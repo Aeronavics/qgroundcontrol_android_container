@@ -6,12 +6,12 @@ pipeline {
         stage('build_images') {
           steps {
             sh '''cd qgc_android && docker build
-'''
+.'''
           }
         }
         stage('build_linux') {
           steps {
-            sh 'cd qgc_linux && docker build'
+            sh 'cd qgc_linux && docker build .'
           }
         }
       }
