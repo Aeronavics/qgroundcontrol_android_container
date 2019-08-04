@@ -5,13 +5,12 @@ pipeline {
       parallel {
         stage('build_images') {
           steps {
-            sh '''cd qgc_android && docker build
-.'''
+            sh 'docker build qgc_android'
           }
         }
         stage('build_linux') {
           steps {
-            sh 'cd qgc_linux && docker build .'
+            sh 'docker build qgc_linux'
           }
         }
       }
