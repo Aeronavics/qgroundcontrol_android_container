@@ -8,7 +8,7 @@ pipeline {
       parallel {
         stage('build_android') {
           steps {
-            sh 'docker build qgc_android -t pelardon.aeronavics.com:8083/qgc_android:latest'
+            sh 'docker build --build-arg CREDENTIALS=${QGC_REGISTRY_CREDS} qgc_android -t pelardon.aeronavics.com:8083/qgc_android:latest'
             sh 'docker login pelardon.aeronavics.com:8083 --username ${QGC_REGISTRY_CREDS_USR} --password ${QGC_REGISTRY_CREDS_PSW}'
             sh 'docker push pelardon.aeronavics.com:8083/qgc_android:latest'
           }
