@@ -14,7 +14,6 @@ RUN     apt update && \
         curl -u $CREDENTIALS -O "http://192.168.2.144:8086/nexus/repository/gstreamer-android-qgroundcontrol/curl-android-ios-cURL_7.60.0.tar.gz" && \
         tar xvf ./curl-android-ios-cURL_7.60.0.tar.gz -C /
 
-
 RUN usermod -u 1040 user
 RUN groupmod -g 1040 user
 RUN usermod -g 1040 user
