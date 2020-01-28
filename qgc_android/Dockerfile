@@ -1,4 +1,4 @@
-FROM mavlink/qgc-build-android:2019-02-03
+FROM mavlink/qgc-build-android:2019-12-21
 
 ARG CREDENTIALS="Undefined"
 
@@ -10,10 +10,10 @@ RUN     apt update && \
         apt install -y libcurl4-gnutls-dev:i386 && \
         curl -u $CREDENTIALS -O "http://192.168.2.144:8086/nexus/repository/gstreamer-android-qgroundcontrol/gstreamer/gstreamer-1.0-android-universal-1.14.4.tar.bz2" && \
         tar jxf gstreamer-1.0-android-universal-1.14.4.tar.bz2 -C / && \
-        curl -u $CREDENTIALS -O "http://192.168.2.144:8086/nexus/repository/gstreamer-android-qgroundcontrol/curl-android-ios-cURL_7.60.0.tar.gz" && \
+        curl -u $CREDENTIALS -O "http://192.168.2.144:8086/nexus/repository/gstreamer-android-qgroundcontrol/gstreamer/curl-android-ios-cURL_7.60.0.tar.gz" && \
         tar xvf ./curl-android-ios-cURL_7.60.0.tar.gz -C / && \
-        cp /curl-android-ios-cURL_7.60.0/prebuilt-with-ssl/android/armeabi-v7a/libcurl.a /opt/android-ndk/platforms/android-21/arch-arm/lib/ && \
-        cp -r /curl-android-ios-cURL_7.60.0/prebuilt-with-ssl/android/include/curl/  /opt/android-ndk/platforms/android-21/arch-arm/include/
+        cp /curl-android-ios-cURL_7.60.0/prebuilt-with-ssl/android/armeabi-v7a/libcurl.a /opt/android-sdk/ndk-r20b/platforms/android-21/arch-arm/lib/ && \
+        cp -r /curl-android-ios-cURL_7.60.0/prebuilt-with-ssl/android/include/curl/  /opt/android-sdk/ndk-r20b/platforms/android-21/arch-arm/include/
 
 RUN usermod -u 1040 user
 RUN groupmod -g 1040 user
